@@ -40,6 +40,7 @@ public class CSVController {
                 break;
             case "S":
                 System.out.println("Sort");
+                CSVService.sortPage(listFiles, pointer);
                 break;
             default:
                 System.out.println("Unknown input: " + input + ", please try again");

@@ -13,18 +13,17 @@ import java.util.logging.Logger;
 public class Main {
     static Logger log = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
-        log.info("Enter your username: ");
         Scanner scanner = new Scanner(System.in);
         boolean exit = true;
         while(exit){
 
             String input = scanner.nextLine();
-            log.info("Your username is " + input);
             CSVController.CSVMain(input, args[1]);
+            System.out.println("F)irst page, P)revious page, N)ext page, L)ast page, J)ump to page, S)ort, E)xit");
             if("E".equals(input)){
                 exit = false;
             }
-        };
+        }
         scanner.close();
     }
 }

@@ -13,8 +13,6 @@ public class Printer {
         buildSeparator(maxRowLength);
         buildInfo(maxRowLength, data.subList(1, data.size()));
         printPageNumber(pointer, maxPage);
-        // TODO auslagern
-        System.out.println("F)irst page, P)revious page, N)ext page, L)ast page, E)xit");
     }
 
 
