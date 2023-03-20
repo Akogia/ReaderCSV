@@ -1,5 +1,6 @@
 package org.executable;
 
+import org.executable.controller.CSVController;
 import org.executable.printer.Printer;
 import org.executable.reader.CSVReader;
 
@@ -10,21 +11,20 @@ import java.util.logging.Logger;
 
 
 public class Main {
+    static Logger log = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
-        Logger log = Logger.getLogger(Main.class.getName());
         log.info("Enter your username: ");
         Scanner scanner = new Scanner(System.in);
-        String username = null;
-        File folder = new File(args[1]);
-        File[] list = folder.listFiles();
-        List<String[]> resultData  = CSVReader.readDataFromCustomSeparator(list[0].toString());
+        boolean exit = true;
+        while(exit){
 
-        Printer.printAllData(resultData);
-
-        while(!"end".equals(username)){
-            username = scanner.nextLine();
-            log.info("Your username is " + username);
-        }
+            String input = scanner.nextLine();
+            log.info("Your username is " + input);
+            CSVController.CSVMain(input, args[1]);
+            if("E".equals(input)){
+                exit = false;
+            }
+        };
         scanner.close();
     }
 }
