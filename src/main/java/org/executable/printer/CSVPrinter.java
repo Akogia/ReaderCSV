@@ -1,11 +1,10 @@
 package org.executable.printer;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Printer {
+public class CSVPrinter {
 
     public static void printAllData(List<String[]> data, String pointer, String maxPage){
         int[] maxRowLength = getMaxRowLength(data);
@@ -13,6 +12,7 @@ public class Printer {
         buildSeparator(maxRowLength);
         buildInfo(maxRowLength, data.subList(1, data.size()));
         printPageNumber(pointer, maxPage);
+        printLegend();
     }
 
 
@@ -68,5 +68,9 @@ public class Printer {
 
     private static void printPageNumber(String pointer, String maxPage){
         System.out.println("Page " + pointer  + " of " + maxPage);
+    }
+
+    private static void printLegend(){
+        System.out.println("F)irst page, P)revious page, N)ext page, L)ast page, J)ump to page, S)ort, E)xit");
     }
 }

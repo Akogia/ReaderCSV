@@ -1,6 +1,6 @@
 package org.executable.service;
 
-import org.executable.printer.Printer;
+import org.executable.printer.CSVPrinter;
 import org.executable.reader.CSVReader;
 
 import java.io.File;
@@ -61,7 +61,7 @@ public class CSVService {
 
                                 if(column.equals(sort)){
                                         List<String[]> sorted = sortData(unsorted.subList(1, unsorted.size()), columnInt);
-                                        Printer.printAllData(unsorted, String.valueOf(pointer), String.valueOf(files.length));
+                                        CSVPrinter.printAllData(unsorted, String.valueOf(pointer), String.valueOf(files.length));
 
                                 }
                                 columnInt += 1;
@@ -83,6 +83,6 @@ public class CSVService {
 
         private static void readFileAndPrint(String filePath, int pointer, String maxFileLength){
                 List<String[]> resultData  = CSVReader.readDataFromCustomSeparator(filePath);
-                Printer.printAllData(resultData, String.valueOf(pointer), maxFileLength);
+                CSVPrinter.printAllData(resultData, String.valueOf(pointer), maxFileLength);
         }
 }

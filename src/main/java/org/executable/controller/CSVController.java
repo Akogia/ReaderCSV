@@ -1,22 +1,16 @@
 package org.executable.controller;
 
-import org.executable.printer.Printer;
-import org.executable.reader.CSVReader;
 import org.executable.service.CSVService;
 
 import java.io.File;
-import java.util.List;
-import java.util.logging.Logger;
 
 public class CSVController {
-    static Logger log = Logger.getLogger(CSVController.class.getName());
     private static int pointer = 1;
 
     public static void CSVMain(String input, String folderPath){
         File folder = new File(folderPath);
         File[] listFiles = folder.listFiles();
 
-        log.info("CSV Main");
         switch (input){
             case "F":
                 System.out.println("First Page");
