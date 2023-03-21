@@ -11,13 +11,15 @@ import java.util.Scanner;
 
 public class CSVService {
 
-        public static int firstPage(File[] files, int pointer){
+        private static int pointer = 1;
+
+        public static int firstPage(File[] files){
                 pointer = 1;
                 readFileAndPrint(files[pointer-1].toString(), pointer, String.valueOf(files.length));
                 return pointer;
         }
 
-        public static int previousPage(File[] files, int pointer){
+        public static int previousPage(File[] files){
                 if(pointer == 1){
                         pointer = files.length;
                 } else {
@@ -27,19 +29,19 @@ public class CSVService {
                 return pointer;
         }
 
-        public static int nextPage(File[] files, int pointer){
+        public static int nextPage(File[] files){
                 pointer += 1;
                 readFileAndPrint(files[pointer-1].toString(), pointer, String.valueOf(files.length));
                 return pointer;
         }
 
-        public static int lastPage(File[] files, int pointer){
+        public static int lastPage(File[] files){
                 pointer = files.length;
                 readFileAndPrint(files[pointer-1].toString(), pointer, String.valueOf(files.length));
                 return pointer;
         }
 
-        public static int jumpPage(File[] files, int pointer){
+        public static int jumpPage(File[] files){
                 try{
                         Scanner input = new Scanner(System.in);
                         pointer = input.nextInt();
@@ -50,7 +52,7 @@ public class CSVService {
                 return pointer;
         }
 
-        public static void sortPage(File[] files, int pointer){
+        public static void sortPage(File[] files){
                 try{
                         Scanner sortColumn = new Scanner(System.in);
                         List<String[]> unsorted = CSVReader.readDataFromCustomSeparator(files[pointer-1].toString());

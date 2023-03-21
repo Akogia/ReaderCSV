@@ -5,7 +5,6 @@ import org.executable.service.CSVService;
 import java.io.File;
 
 public class CSVController {
-    private static int pointer = 1;
 
     public static void CSVMain(String input, String folderPath){
         File folder = new File(folderPath);
@@ -13,28 +12,22 @@ public class CSVController {
 
         switch (input){
             case "F":
-                System.out.println("First Page");
-                pointer = CSVService.firstPage(listFiles, pointer);
+                CSVService.firstPage(listFiles);
                 break;
             case "P":
-                System.out.println("Previous Page");
-                pointer = CSVService.previousPage(listFiles, pointer);
+                CSVService.previousPage(listFiles);
                 break;
             case "N":
-                System.out.println("Next Page");
-                pointer = CSVService.nextPage(listFiles, pointer);
+                CSVService.nextPage(listFiles);
                 break;
             case "L":
-                System.out.println("Last Page");
-                pointer = CSVService.lastPage(listFiles, pointer);
+                CSVService.lastPage(listFiles);
                 break;
             case "J":
-                System.out.println("Jump Page");
-                pointer = CSVService.jumpPage(listFiles, pointer);
+                CSVService.jumpPage(listFiles);
                 break;
             case "S":
-                System.out.println("Sort");
-                CSVService.sortPage(listFiles, pointer);
+                CSVService.sortPage(listFiles);
                 break;
             default:
                 System.out.println("Unknown input: " + input + ", please try again");
