@@ -3,6 +3,7 @@ package org.executable;
 import org.executable.controller.CSVController;
 import org.executable.common.CSVPrinter;
 import org.executable.common.CSVReader;
+import org.executable.service.CSVService;
 
 import java.io.File;
 import java.util.List;
@@ -17,8 +18,7 @@ public class Main {
         // args is the path to the resource folder
         File folder = new File(args[1]);
         File[] listFiles = folder.listFiles();
-        List<String[]> resultData  = CSVReader.readDataFromCustomSeparator(listFiles[0].toString());
-        CSVPrinter.printAllData(resultData, "1", String.valueOf(listFiles.length));
+        CSVService.start(listFiles);
 
 
         Scanner scanner = new Scanner(System.in);

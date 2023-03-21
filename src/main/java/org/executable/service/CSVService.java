@@ -13,35 +13,35 @@ public class CSVService {
 
         private static int pointer = 1;
 
-        public static int firstPage(File[] files){
-                pointer = 1;
+        public static void start(File[] files){
                 readFileAndPrint(files[pointer-1].toString(), pointer, String.valueOf(files.length));
-                return pointer;
         }
 
-        public static int previousPage(File[] files){
+        public static void firstPage(File[] files){
+                pointer = 1;
+                readFileAndPrint(files[pointer-1].toString(), pointer, String.valueOf(files.length));
+        }
+
+        public static void previousPage(File[] files){
                 if(pointer == 1){
                         pointer = files.length;
                 } else {
                         pointer -= 1;
                 }
                 readFileAndPrint(files[pointer-1].toString(), pointer, String.valueOf(files.length));
-                return pointer;
         }
 
-        public static int nextPage(File[] files){
+        public static void nextPage(File[] files){
                 pointer += 1;
                 readFileAndPrint(files[pointer-1].toString(), pointer, String.valueOf(files.length));
-                return pointer;
         }
 
-        public static int lastPage(File[] files){
+        public static void lastPage(File[] files){
                 pointer = files.length;
                 readFileAndPrint(files[pointer-1].toString(), pointer, String.valueOf(files.length));
-                return pointer;
         }
 
-        public static int jumpPage(File[] files){
+        public static void jumpPage(File[] files){
                 try{
                         Scanner input = new Scanner(System.in);
                         pointer = input.nextInt();
@@ -49,7 +49,6 @@ public class CSVService {
                 }catch (Exception e){
                         System.out.println("false input");
                 }
-                return pointer;
         }
 
         public static void sortPage(File[] files){
