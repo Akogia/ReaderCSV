@@ -1,4 +1,4 @@
-package org.executable.reader;
+package org.executable.common;
 
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;

@@ -1,7 +1,7 @@
 package org.executable.service;
 
-import org.executable.printer.CSVPrinter;
-import org.executable.reader.CSVReader;
+import org.executable.common.CSVPrinter;
+import org.executable.common.CSVReader;
 
 import java.io.File;
 import java.util.Collections;
@@ -62,7 +62,6 @@ public class CSVService {
                                 if(column.equals(sort)){
                                         sortData(unsorted.subList(1, unsorted.size()), columnInt);
                                         CSVPrinter.printAllData(unsorted, String.valueOf(pointer), String.valueOf(files.length));
-
                                 }
                                 columnInt += 1;
                         }

@@ -1,8 +1,8 @@
 package org.executable;
 
 import org.executable.controller.CSVController;
-import org.executable.printer.CSVPrinter;
-import org.executable.reader.CSVReader;
+import org.executable.common.CSVPrinter;
+import org.executable.common.CSVReader;
 
 import java.io.File;
 import java.util.List;
@@ -14,6 +14,7 @@ public class Main {
     static Logger log = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
         // Print for the first time, the first CSV File
+        // args is the path to the resource folder
         File folder = new File(args[1]);
         File[] listFiles = folder.listFiles();
         List<String[]> resultData  = CSVReader.readDataFromCustomSeparator(listFiles[0].toString());
