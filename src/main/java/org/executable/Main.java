@@ -13,18 +13,21 @@ import java.util.logging.Logger;
 public class Main {
     static Logger log = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
+        // Print for the first time, the first CSV File
         File folder = new File(args[1]);
         File[] listFiles = folder.listFiles();
         List<String[]> resultData  = CSVReader.readDataFromCustomSeparator(listFiles[0].toString());
         CSVPrinter.printAllData(resultData, "1", String.valueOf(listFiles.length));
+
+
         Scanner scanner = new Scanner(System.in);
-        boolean exit = true;
-        while(exit){
+        boolean looping = true;
+        while(looping){
 
             String input = scanner.nextLine();
             CSVController.CSVMain(input, args[1]);
             if("E".equals(input)){
-                exit = false;
+                looping = false;
             }
         }
         scanner.close();
